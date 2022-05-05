@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="container">
+    <div class="row my-5">
+{% if OkangaShopApp %}
+          <div class="col-md-6">
+             <span>{{OkangaShopApp.id}} | {{OkangaShopApp.item_title}} </span>
+             <img src="{{ project.image}}" alt="project Image">
+            </div>
+        <div class="col-md-6">
+            <h6>Description</h6>
+            <small>{{OkangaShopApp.item_description}}</small>
+            <br>
+            <small>{{OkangaShopApp.date_created}}</small>
+        </div>
+        {% else %}
+        <h1>Nothing to Display</h1>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

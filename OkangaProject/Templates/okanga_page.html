@@ -1,0 +1,96 @@
+{% extends "base_file.html" %}
+
+{% block page_content %}
+<style>
+    .container{
+        background-color: #306754;
+        width: 100%;
+        margin-bottom: 2rem;
+        box-shadow: 0px 2px 14px 9px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 0px 2px 14px 9px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 2px 14px 9px rgba(0,0,0,0.75);
+    }
+
+    .field{
+    color: #E3F9A6;
+    font-family: bolder;
+    font-size: 20px;
+    margin: 2rem
+    }
+
+    .card{
+     position: relative;
+    top: 20%;
+    left: 10px;
+    margin-top: 10px;
+    background-color: #306754;
+    border: solid;
+    border-color: white;
+    box-shadow: 0px 2px 14px 9px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 0px 2px 14px 9px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 2px 14px 9px rgba(0,0,0,0.75);
+    }
+
+    .buttons{
+    margin: 2rem 5rem;
+    }
+
+</style>
+<br>
+<div class="articles" style="background-color: #2C3539; ">
+   <form action="" method="post">
+
+       {% csrf_token %}
+<!--       {{ article.as_p }}-->
+       <div class="container">
+           <div style="display: flex; justify-content: space-around">
+              <h3> <a href="{% url 'get_all_articles'%}"><button type="button" style="background-color: brown; width: 7rem;
+                border: none; background: none; color: yellow"><b> Home</b></button></a></h3>
+                <h3 style="text-align: center; color: white">Create your article</h3>
+           </div>
+
+           <div class="card">
+                <div class="field">
+              <p><b> {{article.item_title.label}}:</b></p>
+               {{article.item_title}}
+           </div>
+
+           <div class="field">
+              <p> <b>{{article.item_description.label}}: </b></p>
+               {{article.item_description}}
+           </div>
+
+           <div class="field">
+              <p> <b>{{article.item_image.label}}: </b></p>
+               {{article.item_image}}
+           </div>
+
+           <div class="field">
+              <p> <b>{{article.item_amount.label}}: </b></p>
+               {{article.item_amount}}
+           </div>
+
+           <div class="field" >
+              <p> <b>{{article.initial_item_amount.label}}: </b></p>
+              {{article.initial_item_amount}}
+           </div>
+           </div>
+
+       </div>
+
+
+
+
+
+       <div class="buttons">
+           <a href=" {% url 'get_all_articles' %}"><button type="submit" style="background-color: yellow; width: 10rem">Publish Article</button></a>
+           <a href="{% url 'get_all_articles'%}"><button type="button" style="background-color: brown; width: 7rem; ">Cancel</button></a>
+       </div>
+
+   </form>
+
+
+
+</div>
+
+{% endblock %}

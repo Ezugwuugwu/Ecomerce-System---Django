@@ -1,0 +1,48 @@
+{% extends "base_file.html" %}
+
+{% block page_content %}
+<div class="container">
+    <div class="row my-5"; >
+{% if project %}
+        <div class="col-md-6" >
+                <img style=" height: 200px" src="{{ project.item_image}}" alt="project Image">
+        </div>
+
+          <div class="col-md-6" style="
+                    column-count: 3;
+                    -webkit-column-count: 3;
+                    -moz-column-count: 3;
+                    column-gap: 50px;
+                    -webkit-column-gap: 50px;
+                    -moz-column-gap: 50px;
+                    column-rule: 12px double #000000;
+                    -webkit-column-rule: 12px double #000000;
+                    -moz-column-rule: 12px double #000000; ">
+                <h4>Description:</h4>
+                <small>{{project.item_description}}</small>
+                <br>
+        </div>
+
+        <hr><br><br>
+
+         <div class="col-md-6" style="text-align: center; width: 2000px; background-color: pink
+                 box-shadow: 5px 19px 0px 40px rgba(82,0,0,0.75);
+                -webkit-box-shadow: 5px 19px 0px 40px rgba(82,0,0,0.75);
+                -moz-box-shadow: 5px 19px 0px 40px rgba(82,0,0,0.75);">
+                <h3>More Details</h3>
+                <p> <b>Item ID:</b>{{project.id}} </p>
+                <p> <b>Item Title:</b> {{project.item_title}} </p>
+                <p><b>Date Created:</b> {{project.date_created}}</p>
+                <p> <b>description:</b>  {{project.item_description}}</p>
+        </div>
+        {% else %}
+        <h1>Nothing to Display</h1>
+        {% endif %}
+    </div><br>
+    <div>
+         <a  href="{% url 'delete_project' project.id %}"> <button type="submit" style="background-color: red; border-radius: 5px"> Delete </button></a>
+         <a href=""><button style="background-color: yellow; border-radius" type="submit"> Update </button></a>
+         <a href="{% url 'get_all_articles'%}"><button style="background-color: #73A16C; border-radius:5px" type="submit"> Go Back to Home Page </button></a>
+    </div>
+</div>
+{% endblock %}
