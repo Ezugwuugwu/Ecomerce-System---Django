@@ -74,9 +74,10 @@
 
                 <img class="item_image" src="{{ ite.item_image }}" alt="item_image" style="height: 12rem">
                     <div class="card-body" style="background-color: #483C32; border-bottom-left-radius: 10%;">
-                            <p class="item_title"> <b>{{ ite.item_title }}</b>  </p>
-                            <h6  class="initial_item_amount" >#<strike style="color: yellow" >{{ ite.initial_item_amount }}</strike>   _save 5% </h6>
-                            <h6 class="item_amount">{{ ite.item_amount }} </h6>
+                             <small>{{ ite.item_title }}</small><br>
+                            <small  class="initial_item_amount" >#<strike style="color: yellow" >{{ ite.initial_item_amount }}
+                            </strike><small style="color: gray" >/ --safe 5%</small></small><br>
+                            <b class="item_amount">#{{ ite.item_amount }} </b>
                     </div>
             </div>
         </a>
